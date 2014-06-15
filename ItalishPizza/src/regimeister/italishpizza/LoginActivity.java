@@ -9,8 +9,11 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,18 +32,26 @@ public class LoginActivity extends Activity {
 		List<String> staff = db.getAllStaff(); 
 		
 		
+		
+		
 		for (int i = 0; i < staff.size(); i+=3) {
 
+			
+			
+			
 			LinearLayout ll = new LinearLayout(getApplicationContext());
 
-			LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+			LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
-			lp.width = 125;
-			lp.height = 175;
-			lp.setMargins(8, 8, 8, 8);
+			
+			
+			final float scale = getResources().getDisplayMetrics().density;
+			lp.width = (int) (125 * scale + 0.5f);
+			lp.height = (int) (175 * scale + 0.5f);
 
 			ll.setLayoutParams(lp);
 
+			
 			ll.setBackgroundResource(R.layout.cardbackground);
 			ll.setOrientation(LinearLayout.VERTICAL);
 
@@ -48,32 +59,37 @@ public class LoginActivity extends Activity {
 			tv.setText(staff.get(i));
 			tv.setGravity(Gravity.CENTER);
 			tv.setTextColor(Color.BLACK);
+			tv.setBackgroundColor(Color.GRAY);
 			
 			ll.addView(tv);
+			
+			View v = new View(getApplicationContext());
 
+			LayoutParams lp2 = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			lp2.width = (int) (8 * scale + 0.5f);
+			lp2.height = (int) (175 * scale + 0.5f);
+
+			v.setLayoutParams(lp2);
+		
+			
+			gl.addView(v);
 			gl.addView(ll);
+			
+			
 			
 		}
 		
 		
-		Intent x = new Intent(LoginActivity.this,	MainActivity.class);
-		startActivity(x);
 		
+
+	     
+		
+		
+		
+	
 		
 		
 
-		/*
-		 * 
-		 * <LinearLayout android:layout_width="125dp"
-		 * android:layout_height="175dp" android:layout_margin="8dp"
-		 * android:background="@layout/cardbackground"
-		 * android:orientation="vertical" android:onClick="test1" > <TextView
-		 * android:layout_width="wrap_content"
-		 * android:layout_height="wrap_content" android:layout_gravity="center"
-		 * android:text="Management" > </TextView>
-		 * 
-		 * </LinearLayout>
-		 */
 
 	
 
