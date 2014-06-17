@@ -106,6 +106,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     	
     	Log.w("REGI", QUERY);
     	
+    	//comment for testing
+    	
     	return false;
     	
     }
