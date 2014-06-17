@@ -49,7 +49,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older books table if existed
-        db.execSQL("DROP TABLE IF EXISTS STAFF");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STAFF);
  
         // create fresh books table
         this.onCreate(db);
@@ -78,7 +78,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         db.close(); 
     }
     
-    public List<String> getAllStaff() {
+    public List<String> getAllStaffUsernames() {
         List<String> staff = new LinkedList<String>();
  
         // 1. build the query
@@ -92,12 +92,52 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
         if (cursor.moveToFirst()) {
             do {
             	staff.add(cursor.getString(1));
-            	staff.add(cursor.getString(2));
-            	staff.add(cursor.getString(3));
             } while (cursor.moveToNext());
         }
         
         return staff;
     }
     
+    public boolean verifyUser(String username, String password){
+    	
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	
+    	String QUERY = "SELECT * FROM " + TABLE_STAFF + " WHERE " + KEY_STAFF_NAME + "='" + username + "' AND " + KEY_STAFF_PASSWORD + " ='" + password + "'";
+    	
+    	Log.w("REGI", QUERY);
+    	
+    	return false;
+    	
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

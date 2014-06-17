@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
@@ -29,28 +30,20 @@ public class LoginActivity extends Activity {
 		GridLayout gl = (GridLayout) findViewById(R.id.GridLayoutLogin);
 
 		
-		List<String> staff = db.getAllStaff(); 
+		List<String> staff = db.getAllStaffUsernames(); 
 		
 		
 		
 		
-		for (int i = 0; i < staff.size(); i+=3) {
-
-			
-			
-			
+		for (int i = 0; i < staff.size(); i++) {
 			LinearLayout ll = new LinearLayout(getApplicationContext());
-
 			LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-
-			
 			
 			final float scale = getResources().getDisplayMetrics().density;
 			lp.width = (int) (125 * scale + 0.5f);
 			lp.height = (int) (175 * scale + 0.5f);
 
 			ll.setLayoutParams(lp);
-
 			
 			ll.setBackgroundResource(R.layout.cardbackground);
 			ll.setOrientation(LinearLayout.VERTICAL);
@@ -71,13 +64,25 @@ public class LoginActivity extends Activity {
 
 			v.setLayoutParams(lp2);
 		
-			
 			gl.addView(v);
+			
+			ll.setTag(staff.get(i));
+			ll.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					MySQLiteHelper sql = new MySQLiteHelper(getApplicationContext());
+					sql.verifyUser("Regi", "RawR");
+				}
+			});
 			gl.addView(ll);
 			
 			
 			
+			
 		}
+		
+	
 		
 		
 		

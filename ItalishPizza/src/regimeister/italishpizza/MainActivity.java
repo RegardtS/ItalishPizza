@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void test1(View v){
-		db.getAllStaff();
+		
 	}
 	public void test2(View v){
 		db.addStaffMember("Ned", "passw01rd", "Zero");
