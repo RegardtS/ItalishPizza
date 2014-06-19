@@ -72,7 +72,9 @@ public class LoginActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					MySQLiteHelper sql = new MySQLiteHelper(getApplicationContext());
-					sql.verifyUser("Regi", "RawR");
+					Toast.makeText(getApplicationContext(), sql.verifyUser("Ned", "passw01rd") + "", Toast.LENGTH_SHORT).show();
+					
+					
 				}
 			});
 			gl.addView(ll);

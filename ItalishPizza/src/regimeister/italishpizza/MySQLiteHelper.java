@@ -102,10 +102,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 				+ KEY_STAFF_PASSWORD + " ='" + password + "'";
 		Cursor cursor = db.rawQuery(QUERY, null);
 		if (cursor.getCount() <= 0) {
-			return true;
+			return false;
 		}
-		return false;
-//fixed?
+		return true;
 	}
-
 }
