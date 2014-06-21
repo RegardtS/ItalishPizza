@@ -16,15 +16,22 @@
         <activity
             android:name="regimeister.italishpizza.LoginActivity"
             android:label="@string/title_activity_login" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="regimeister.italishpizza.MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="regimeister.italishpizza.AddProduct"
+            android:label="@string/title_activity_add_product" >
+        </activity>
+        <activity
+            android:name="regimeister.italishpizza.AddUser"
+            android:label="@string/title_activity_add_user" >
+         	<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
