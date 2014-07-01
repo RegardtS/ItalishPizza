@@ -22,6 +22,7 @@ public class AddUser extends Activity {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
 	}
 
 	@Override
